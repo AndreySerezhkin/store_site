@@ -513,7 +513,8 @@ ul.btn li:last-child {
 
 .titlepage {
      text-align: center;
-     padding-bottom: 60px;
+     padding-bottom: 30px;
+     padding-top: 30px;
 }
 
 .titlepage h2 {
@@ -523,7 +524,6 @@ ul.btn li:last-child {
      font-weight: bold;
      padding: 0;
      text-transform: uppercase;
-     border-bottom: #48ca95 solid 1px;
      max-width: 315px;
      margin: auto;
 }

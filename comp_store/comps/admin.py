@@ -24,6 +24,11 @@ class ProductStatusAdmin(admin.ModelAdmin):
 class ProductAdmin(admin.ModelAdmin):
     prepopulated_fields = {"slug": ("name",)}
     form = ProductAdminForm
+    list_display = ('name','created_at', 'views', 'category', 'status', 'seller')
+    list_filter = ('category', 'status', 'seller')
+    search_fields = ('name',)
+    ordering = ('-created_at',)
+    list_display_link = ('name')
 
 
 admin.site.register(Category, CategoryAdmin)

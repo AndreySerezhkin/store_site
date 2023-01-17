@@ -42,7 +42,11 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.google', # for Google OAuth 2.0
     # ...
 
+    'crispy_forms'
+
 ]
+
+AUTH_USER_MODEL = 'oauth.User'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -229,14 +233,23 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend'
 ]
 
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
 SITE_ID = 1
 LOGIN_REDIRECT_URL = '/'
 
+
 # Additional configuration settings
 SOCIALACCOUNT_QUERY_EMAIL = True
-ACCOUNT_LOGOUT_ON_GET= True
+# ACCOUNT_LOGOUT_ON_GET= True
 ACCOUNT_UNIQUE_EMAIL = True
 ACCOUNT_EMAIL_REQUIRED = True
+
+ACCOUNT_LOGOUT_REDIRECT_URL = 'account_login'
+
+SOCIALACCOUNT_QUERY_EMAIL = True
+
+ACCOUNT_SESSION_REMEMBER = True
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {
@@ -249,3 +262,7 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     }
 }
+
+GOOGLE_CLIENT_ID = '445150827482-r5udpf6643r47qruj9ja1ukoeorgjukr.apps.googleusercontent.com'
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
